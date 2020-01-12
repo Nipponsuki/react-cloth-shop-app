@@ -5,7 +5,7 @@ import "./styles.scss";
 import Signin from "components/SIginin/Index";
 
 const AuthPage = () => (
-  <div>
+  <div className="sign-in-and-sign-up">
     <Signin />
   </div>
 );

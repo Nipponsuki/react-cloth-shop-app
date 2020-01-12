@@ -6,10 +6,15 @@ import ShopPage from "pages/ShopPage";
 import Header from "components/Header";
 import AuthPage from "pages/AuthPage";
 
+import { useAuthUser } from "hooks/useAuthFirebase";
+
 function App() {
+  const currentUser = useAuthUser();
+  console.log(currentUser);
+
   return (
     <div>
-      <Header />
+      <Header currentUser={currentUser} />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />

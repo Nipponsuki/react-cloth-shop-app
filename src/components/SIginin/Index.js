@@ -7,6 +7,8 @@ import { useForm } from "hooks/useForm";
 import FormInput from "components/FormInput";
 import Button from "components/Button";
 
+import { siginInWithGoogle } from "firebase/firebase.utils";
+
 const Signin = () => {
   const { form, handleInputChange, clearInputs } = useForm({
     email: "",
@@ -40,7 +42,12 @@ const Signin = () => {
           required
           label="Password"
         />
-        <Button type="submit">Sign in</Button>
+        <div className="buttons">
+          <Button type="submit">Sign in</Button>
+          <Button type="submit" onClick={siginInWithGoogle} isGoogle>
+            Sign in with Google
+          </Button>
+        </div>
       </form>
     </div>
   );
