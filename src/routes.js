@@ -5,6 +5,7 @@ import HomePage from "pages/HomePage";
 import ShopPage from "pages/ShopPage";
 import Header from "components/Header";
 import AuthPage from "pages/AuthPage";
+import CheckoutPage from "pages/CheckoutPage";
 
 import { useAuthUser } from "hooks/useAuthFirebase";
 
@@ -22,6 +23,7 @@ function App() {
           path="/auth"
           render={() => (currentUser ? <Redirect to="/" /> : <AuthPage />)}
         />
+        <Route exact path="/checkout" component={CheckoutPage} />
       </Switch>
     </div>
   );

@@ -17,6 +17,11 @@ const CartIcon = ({ toggleCartHidden, itemCount = 0 }) => {
   );
 };
 
-export default connect(state => ({ itemCount: selectCartItemsCount(state) }), {
-  toggleCartHidden
-})(CartIcon);
+export default connect(
+  state => ({
+    itemCount: selectCartItemsCount(state)
+  }),
+  {
+    toggleCartHidden
+  }
+)(CartIcon);
