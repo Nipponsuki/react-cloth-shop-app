@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import HomePage from "pages/HomePage";
 import ShopPage from "pages/ShopPage";
@@ -10,7 +10,6 @@ import { useAuthUser } from "hooks/useAuthFirebase";
 
 function App() {
   const currentUser = useAuthUser();
-  console.log(currentUser);
 
   return (
     <div>
@@ -18,7 +17,11 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
-        <Route path="/auth" component={AuthPage} />
+        <Route
+          exact
+          path="/auth"
+          render={() => (currentUser ? <Redirect to="/" /> : <AuthPage />)}
+        />
       </Switch>
     </div>
   );
