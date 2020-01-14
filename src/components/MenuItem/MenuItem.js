@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import "./styles.scss";
 
-const MenuItem = ({ title, imageUrl, size }) => (
-  <Link className={`${size} menu-item`} to="/">
+const MenuItem = ({ title, imageUrl, size, linkUrl }) => (
+  <Link className={`${size} menu-item`} to={`${linkUrl}`}>
     <div
       className="background-image"
       style={{
